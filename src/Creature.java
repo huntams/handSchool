@@ -36,7 +36,7 @@ public class Creature {
         this.MaxDamage = MaxDamage;
     }
 
-    public boolean DeadCreature() {
+    public boolean DeadCreature() {//Возвращает true, если здоровье существа меньше 0
         return getHP() <= 0;
     }
 
@@ -61,9 +61,9 @@ public class Creature {
 
     }
 
-    public void AttackEnemy(Creature creature) {
+    public void AttackEnemy(Creature creature) {//Отнимаем здоровье противника по алгоритму
         System.out.println("Здоровье " + creature.Name + " до получения урона: " + creature.HP);
-        int ModAttack = Attack - creature.Protection + 1;
+        int ModAttack = Attack - creature.Protection + 1;//ModAttack- количество возможных бросков кубика
         int Dice = 0;
         if (ModAttack <= 0)
             ModAttack = 1;

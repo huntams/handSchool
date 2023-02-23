@@ -10,25 +10,25 @@ public class Main {
         Monster monster = null;
         boolean End = false;
         boolean StatusCreated = false;
-        while (!StatusCreated) {
+        while (!StatusCreated) {//Создание игрока
             StatusCreated = player.CreateCreature();
         }
         StatusCreated = false;
-        while (!StatusCreated) {
+        while (!StatusCreated) {//Создание монстра
             monster = new Monster();
             StatusCreated = monster.CreateCreature();
         }
-        while (!End) {
+        while (!End) {//Пока одно из существ не умрёт
             monster.AttackEnemy(player);
-            if(player.MaxHP/2> player.getHP() && player.getHP()>0)
+            if (player.MaxHP / 2 > player.getHP() && player.getHP() > 0)//Восстановление здоровье
                 player.RestoreHP();
-            if (player.DeadCreature()){
+            if (player.DeadCreature()) {
                 System.out.println("Конец игры,монстр победил");
-                End=true;
+                End = true;
                 break;
             }
             player.AttackEnemy(monster);
-            if(monster.DeadCreature()){
+            if (monster.DeadCreature()) {
                 System.out.println("Конец игры,игрок победил");
                 End = true;
                 break;
