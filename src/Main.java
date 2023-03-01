@@ -18,19 +18,17 @@ public class Main {
             monster = new Monster();
             StatusCreated = monster.CreateCreature();
         }
-        while (!End) {//Пока одно из существ не умрёт
+        while (true) {//Пока одно из существ не умрёт
             monster.AttackEnemy(player);
             if (player.MaxHP / 2 > player.getHP() && player.getHP() > 0)//Восстановление здоровье
                 player.RestoreHP();
             if (player.DeadCreature()) {
                 System.out.println("Конец игры,монстр победил");
-                End = true;
                 break;
             }
             player.AttackEnemy(monster);
             if (monster.DeadCreature()) {
                 System.out.println("Конец игры,игрок победил");
-                End = true;
                 break;
             }
         }

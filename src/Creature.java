@@ -2,13 +2,16 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Random;
 
-public class Creature {
-    public int MaxHP;
+public abstract class Creature {
+    private int MaxHP;
     private String Name;
 
     private int HP, MinDamage, MaxDamage;
     private final int Attack, Protection;
     Random random = new Random();
+    public int getMaxHP(){
+        return MaxHP;
+    }
 
     public String getName() {
         return Name;

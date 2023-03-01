@@ -7,9 +7,10 @@ public class Player extends Creature {
 
     public void RestoreHP() {//Восстановление здоровья, восстанавливает 50% от максимального значения здоровья
         if (Potion > 0) {
+            int MaxHP = getMaxHP();
             int hp = getHP();
             setHP(Math.min((MaxHP / 2) + hp, MaxHP));
-            System.out.println(" Использовано зелье " + MaxHP);
+            System.out.println(" Использовано зелье " + getHP());
             Potion--;
         }
     }
